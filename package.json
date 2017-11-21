@@ -1,0 +1,16 @@
+{
+  "name": "qiniu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.7.9",
+    "qiniu": "^7.1.1",
+    "request": "^2.83.0"
+  }
+}

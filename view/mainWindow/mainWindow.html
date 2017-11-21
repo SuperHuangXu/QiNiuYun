@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>MainWindow</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
+   <script src="../../lib/vue.js"></script>
+   <style>
+      * {
+         font-family: "微软雅黑";
+      }
+   </style>
+</head>
+
+<body>
+   <div id="app">
+      <nav>
+         <div class="nav-wrapper">
+            <a class="brand-logo center">七牛云</a>
+         </div>
+      </nav>
+      <form action="#">
+         <div class="file-field input-field">
+            <div class="btn">
+               <span>File</span>
+               <input type="file" @change="fileChange($event)">
+            </div>
+            <div class="file-path-wrapper">
+               <input class="file-path validate" type="text" v-model="text" placeholder="Upload one or more files">
+            </div>
+            <div></div>
+         </div>
+      </form>
+      <div :class="updateing">
+         <div class="indeterminate"></div>
+      </div>
+      <ul class="collection">
+         <li class="collection-item center-align">{{reslutURL}} </li>
+      </ul>
+      <a class="waves-effect waves-light btn right collection" @click="copy()">
+         <i class="material-icons right">content_copy</i>复制</a>
+   </div>
+   <script src="./mainWindow.js"></script>
+</body>
+
+</html>
