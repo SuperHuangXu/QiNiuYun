@@ -6,16 +6,16 @@ const {
 const app = new Vue({
    el: "#app",
    data: {
-      updateing: "", // class 为 progress时显示进度条。
+      isActive: false,
       reslutURL: "",
       text: ""
    },
    methods: {
       fileChange(event) {
          const files = event.target.files;
-         console.log(files);
          if (files.length === 0) {
-            JSAlert.alert("未选择文件！").dismissIn(1000 * 1.5);
+            //  未选择文件 Alert
+            Materialize.toast('未选择文件!', 2000);
             return;
          }
          // 序列化发送数据
@@ -36,12 +36,13 @@ const app = new Vue({
 
          // 将数据发送到主进程
          ipcRenderer.send("mainWindow:files", data);
-         this.updateing = "progress";
+         this.isActive = true;
       },
       copy() {
          clipboard.writeText(this.reslutURL);
-         JSAlert.alert("已复制").dismissIn(1000 * 1.5);
-      }
+         // 已复制 Alert
+         Materialize.toast('已复制', 1000);
+      },
    },
 });
 
@@ -49,7 +50,6 @@ const that = app.$data;
 
 ipcRenderer.on("mainWindow:result", (e, data) => {
    // 收到返回
-   that.updateing = "";
+   that.isActive = false;
    that.reslutURL = data;
-   console.log(that.reslutURL);
 });

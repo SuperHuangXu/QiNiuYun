@@ -34,7 +34,7 @@ config.zone = qiniu.zone.Zone_z0;
 function qnUpdate(localFile, name) {
       return new Promise((resolve, reject) => {
             // 是否使用https域名
-            //config.useHttpsDomain = true;
+            config.useHttpsDomain = true;
             // 上传是否使用cdn加速
             config.useCdnDomain = true;
 
@@ -48,26 +48,25 @@ function qnUpdate(localFile, name) {
             }
             const putPolicy = new qiniu.rs.PutPolicy(options);
             const uploadToken = putPolicy.uploadToken(mac);
-            // 文件上传
 
+            // 文件上传
             formUploader.putFile(uploadToken, keys, localFile, putExtra, function (respErr,
                   respBody, respInfo) {
                   if (respErr) {
                         throw respErr;
                   }
+                  // 成功返回值 200
                   if (respInfo.statusCode == 200) {
+                        // bucket 对应的 public url.
                         const bucketUrl = "http://ocaqc5g59.bkt.clouddn.com/";
+                        // resolve
                         resolve(bucketUrl + respBody.key);
                   } else {
-                        console.log(respInfo.statusCode);
-                        console.log(respBody);
-                        reject(respBody);
+                        reject(`respInfo.statusCode: ${respInfo.statusCode}\n respBody: ${respBody}`);
                   }
             });
       });
 }
-
-
 
 module.exports = {
       downloadImage,
