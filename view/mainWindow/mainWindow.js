@@ -8,7 +8,7 @@ const app = new Vue({
    data: {
       isActive: false,
       reslutURL: "",
-      text: ""
+      text: "",
    },
    methods: {
       fileChange(event) {
@@ -42,7 +42,7 @@ const app = new Vue({
          clipboard.writeText(this.reslutURL);
          // 已复制 Alert
          Materialize.toast('已复制', 1000);
-      },
+      }
    },
 });
 

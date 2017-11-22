@@ -4,9 +4,9 @@
 <head>
    <meta charset="UTF-8">
    <title>MainWindow</title>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link type="text/css" rel="stylesheet" href="../../lib/materialize/materialize.min.css" media="screen,projection" />
+   <link rel="stylesheet" href="./mainWindow.css">
    <script>
       window.nodeRequire = require;
       delete window.exports;
@@ -20,12 +20,12 @@
 </head>
 
 <body>
+   <nav>
+      <div class="nav-wrapper">
+         <a class="brand-logo center">七牛云</a>
+      </div>
+   </nav>
    <div id="app">
-      <nav>
-         <div class="nav-wrapper">
-            <a class="brand-logo center">七牛云</a>
-         </div>
-      </nav>
       <form action="#">
          <div class="file-field input-field">
             <div class="btn">
@@ -38,6 +38,9 @@
             <div></div>
          </div>
       </form>
+      <div class="imgContainer">
+         <img class="materialboxed" width="500" height="300" :src="reslutURL">
+      </div>
       <div :class="{progress: isActive}">
          <div class="indeterminate"></div>
       </div>

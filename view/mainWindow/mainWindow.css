@@ -1,0 +1,12 @@
+#app {
+   padding: 18px;
+}
+
+.materialboxed {
+   object-fit: contain;
+}
+
+.imgContainer {
+   display: flex;
+   justify-content: center;
+}

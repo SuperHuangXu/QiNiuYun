@@ -19,9 +19,10 @@ function initialize() {
 
    (function createWindow() {
       const windowOptions = {
+         width: 900,
+         height: 700,
          backgroundColor: '#eeeeee ',
          show: false,
-
       }
       mainWindow = new BrowserWindow(windowOptions);
       mainWindow.loadURL(url.format({
