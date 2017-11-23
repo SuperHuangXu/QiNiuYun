@@ -19,4 +19,4 @@ ipcMain.on("mainWindow:files", (event, files) => {
          console.log(err);
       });
    });
-})
+});
